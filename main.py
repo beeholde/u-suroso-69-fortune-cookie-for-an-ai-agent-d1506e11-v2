@@ -25,6 +25,8 @@ def main() -> None:
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
+    # newline="" keeps the write byte-exact: no trailing newline is added,
+    # so the file holds exactly the 74 characters of the fortune line.
     with open(path, "w", encoding="utf-8", newline="") as handle:
         handle.write(text)
     os.chmod(path, 0o644)
